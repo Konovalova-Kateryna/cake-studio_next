@@ -1,0 +1,128 @@
+.assortment__product-item {
+    
+@media screen and (min-width: 1920px) {
+        width: calc(100% / 3);
+        max-width: 100%;
+        padding: 80px 45px;
+        text-align: start;
+
+        gap: 40px;
+    }
+}
+  
+.products-like {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: auto;
+    grid-row-end: auto;
+
+    @media screen and (min-width: 1920px) {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 6;
+    }
+}
+
+.assortment__product-img {
+    
+    margin-left: auto;
+    margin-right: auto;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    @media screen and (min-width: 1920px) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+}
+
+.product-title {
+    font-size: 20px;
+    
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+    @media screen and (min-width: 1920px) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        font-size: 25px;
+    }
+}
+
+.product-desctiption {
+    display: none;
+
+    @media screen and (min-width: 1920px) {
+        display: none;
+        transition: (transform, $transition-value);
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+
+    }
+}
+
+.product-price {
+    grid-area: price;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    text-align: start;
+
+    @media screen and (min-width: 1920px) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        margin-top: 0;
+    }
+}
+
+.assortment__descr-btn {
+    grid-area: choose;
+    width: 100%;
+    max-width: 320px;
+    height: 60px;
+    margin-top: 50px;
+
+    @media screen and (min-width: 1920px) {
+        width: 215px;
+        margin-top: 40px;
+    }
+}
+
+.products-bag {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+
+    @media screen and (min-width: 1920px) {
+        display: none;
+    }
+}
+.product-choose {
+    display: none;
+
+    @media screen and (min-width: 1920px) {
+        display: block;
+        margin-top: 0;
+
+
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 5;
+        grid-row-end: 6;
+    }
+}

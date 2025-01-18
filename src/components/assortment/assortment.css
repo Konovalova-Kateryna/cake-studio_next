@@ -1,0 +1,13 @@
+.assortment__btn-icon{
+    @apply w-[78px] h-[78px] lg:w-[120px] lg:h-[120px] fill-none stroke-black
+}
+
+.assortment__btn-title{
+    @apply font-segoe font-normal text-[12px] leading-2 tracking-[0.97px] uppercase
+}
+
+.assortment__btn{
+    @apply flex h-[120px] w-[106px] pt-3 justify-center lg:w-[230px] lg:h-[180px] lg:py-5 lg:pr-5 lg:justify-end
+}
+
+  
