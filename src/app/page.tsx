@@ -6,9 +6,9 @@ import { useRouter } from "next/navigation";
 export default function Admin() {
 const router = useRouter();
 
-    useEffect(() => {
-        router.push('/admin/add-desert')
-    }, [router])
+    // useEffect(() => {
+    //     router.push('/admin/add-desert')
+    // }, [router])
 
 
     return (

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 // import { Roboto } from "next/font/google";
 
 import "./globals.css";
+import { Providers } from "@/components/navigation/providers";
 
 
 // const roboto = Roboto({
@@ -27,8 +28,12 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet"/>
         <link rel="icon" href="/public/favicon.svg" type="image/svg" sizes="any" />
       </head>
-      <body >{children}</body>
-       
+      <body >
+        <Providers>
+        {children}
+        </Providers>
+        </body>
+        
     </html>
   );
 }

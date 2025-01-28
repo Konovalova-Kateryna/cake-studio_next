@@ -4,6 +4,8 @@ import {getToken} from "next-auth/jwt";
 
 axios.defaults.baseURL = API_URL.BASE;
 
+
+
 export const getDeserts = async () => {
     try {
         const responce = await axios.get('/deserts');
@@ -24,14 +26,9 @@ try {
 }
 
 
-const newToken=await getToken({secret:process.env.JWT_SECRET});
-if (newToken){
-    console.log("Token", newToken)
-}else{
-    console.log("Invalid Authorize")
-}
 
-const token ={
+
+const newToken ={
     set(token:string){
         axios.defaults.headers.common.Authorization=`Bearer ${token}`
     },
@@ -40,15 +37,46 @@ const token ={
     }
 }
 
-export const loginAdmin=async(data:any)=>{
-    try {
-        const response=await axios.post("/auth/login", data);
+export const Login=async(data:any)=>{
+    try { 
+        const responce=await axios.post('http://localhost:3003/api/auth/login', data)
+        
+        return responce.data;
 
-        const newToken=response.data.newToken;
-        if (newToken){
-    token.set(newToken);
-    console.log("Log In Admin", response);
-    return response.data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const findUserByEmail = async (data) => {
+    try {
+        const responce = await axios.get("http://localhost:3003/api/auth/user", data);
+            
+        return responce.data
+        
+    } catch (error) {console.log(error.message)
+        
+    }
+
+}
+
+export const loginAdmin=async(data:any)=>{
+    try {    
+   
+        const response=await axios.post("http://localhost:3003/api/auth/login", {
+    email: data.email,
+    password: data.password
+        });        
+        
+        console.log(response.data);
+        const{ token, user}=response.data;
+        if (token){
+    newToken.set(token);
+    console.log("Log In Admin", response.data);
+    return {
+        ...user,
+        token:newToken
+    }
    
 }else{
     console.log("Invalid Authorization");
@@ -56,9 +84,9 @@ export const loginAdmin=async(data:any)=>{
 }
         
     } catch (error:any) {
-        console.log("Login Error", error?.responce?.data||error.message);
+        console.error("Login Error", error?.responce?.data||error.message);
         throw new Error("Помилка логіну: перевірте дані або сервер")
-        
+       
     }
 }
 // export class APIservice{

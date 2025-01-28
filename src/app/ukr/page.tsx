@@ -14,7 +14,7 @@ export default async function Home() {
     <main className={styles.main}>
       <Header />
       <Hero />
-      <Assortment/>
+      {/* <Assortment/> */}
        
        <Footer/>
       
